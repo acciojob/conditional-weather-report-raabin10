@@ -24,7 +24,7 @@ class App extends Component {
     return (
       <div>
         <h1>Current Weather</h1>
-        <p>Temperature: <span style={{ color }}>{weather.temperature}</span> degrees</p>
+        <p>Temperature: <span style={{ color }}>{weather.temperature}</span></p>
         <p>Conditions: {weather.conditions}</p>
       </div>
     );
