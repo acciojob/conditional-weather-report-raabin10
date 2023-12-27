@@ -1,34 +1,25 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 
-class App extends Component {
- constructor(props) {
-    super(props);
-    this.state = {
-      weather: { temperature: 25, conditions: "Sunny" },
-      color: ''
-    };
- }
+const App = () => {
+ const [weather, setWeather] = useState({ temperature: 25, conditions: "Sunny" });
+ const [color, setColor] = useState('');
 
- componentDidMount() {
-    this.updateColor();
- }
+ useEffect(() => {
+    updateColor();
+ }, []);
 
- updateColor() {
-    const { weather } = this.state;
+ const updateColor = () => {
     const color = weather.temperature > 20 ? 'red' : 'blue';
-    this.setState({ color });
+    setColor(color);
  }
 
- render() {
-    const { weather, color } = this.state;
-    return (
-      <div>
-        <h1>Current Weather</h1>
-        <p>Temperature: <span style={{ color }}>{weather.temperature}</span></p>
-        <p>Conditions: {weather.conditions}</p>
-      </div>
-    );
- }
+ return (
+    <div>
+      <h1>Current Weather</h1>
+      <p>Temperature: <span style={{ color }}>{weather.temperature}</span></p>
+      <p>Conditions: {weather.conditions}</p>
+    </div>
+ );
 }
 
 export default App;
